@@ -37,11 +37,12 @@ static const uint32_t HAPTIC_WATCHDOG  = 1000;  // ms without a write → amplit
 static const uint32_t HAPTIC_IDLE_MS   = 2000;  // ms at zero before the driver sleeps
 static const uint32_t BATTERY_PERIOD   = 10000; // ms
 
-// LRA parameters. Check these against the VLV101040A datasheet before the
-// first run; they set the drive voltage. Closed-loop mode keeps the average at
-// the rated voltage and auto-resonance finds the frequency.
-static const float LRA_RATED_VRMS   = 2.0f;   // datasheet "rated voltage"
-static const float LRA_CLAMP_VPEAK  = 2.8f;   // never drive above this
+// LRA parameters for the Vybronics VLV101040A. Digi-Key lists it as 2.5 VAC
+// rated, 170 Hz, 2.75 G. Closed-loop mode keeps the average drive at the rated
+// voltage and auto-resonance finds the frequency. The clamp stays under the
+// rated peak (2.5 Vrms is 3.5 V peak) so nothing overdrives the motor.
+static const float LRA_RATED_VRMS   = 2.5f;
+static const float LRA_CLAMP_VPEAK  = 3.3f;
 static const float LRA_FREQ_HZ      = 170.0f;
 
 // ---- Bluetooth --------------------------------------------------------------

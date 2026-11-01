@@ -53,9 +53,9 @@ The IMU is inside the XIAO on its own I2C bus; nothing to wire.
 ## What to check against the datasheets
 
 The three constants at the top of the sketch set the drive voltage:
-`LRA_RATED_VRMS`, `LRA_CLAMP_VPEAK`, `LRA_FREQ_HZ`. They are filled in from
-memory for the Vybronics VLV101040A. Confirm the rated voltage on the datasheet
-before the first calibration; over-driving an LRA shortens its life.
+`LRA_RATED_VRMS`, `LRA_CLAMP_VPEAK`, `LRA_FREQ_HZ`. They match Digi-Key's
+listing for the Vybronics VLV101040A (2.5 VAC rated, 170 Hz). If you swap the
+motor, change them first; over-driving an LRA shortens its life.
 
 ## Power
 
